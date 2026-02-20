@@ -4,6 +4,7 @@ description: Upload and download files to Autonomys Network permanent decentrali
 metadata:
   openclaw:
     emoji: "🧬"
+    primaryEnv: AUTO_DRIVE_API_KEY
     requires:
       bins: ["curl", "jq", "file"]
       env: ["AUTO_DRIVE_API_KEY"]
@@ -38,14 +39,15 @@ Permanent decentralized storage on the Autonomys Network with linked-list memory
 
 ### API Key
 
-Requires an `AUTO_DRIVE_API_KEY`. The agent should get its own free key at [ai3.storage](https://ai3.storage):
+Requires an `AUTO_DRIVE_API_KEY`. Run the guided setup script for the easiest path:
 
-1. Go to https://ai3.storage
-2. Sign in with **Google** or **GitHub** (SSO)
-3. Navigate to **Developers** in the left sidebar
-4. Click **Create API Key**
+```bash
+scripts/setup-auto-drive.sh
+```
 
-Set the key via environment variable or OpenClaw config:
+This opens [ai3.storage](https://ai3.storage) in your browser, prompts for the key, saves it to `~/.openclaw/.env`, and verifies the connection.
+
+**Manual setup:** Go to https://ai3.storage → sign in with Google or GitHub → Developers → Create API Key. Then set the key via:
 
 - **Environment:** `export AUTO_DRIVE_API_KEY=your_key_here`
 - **OpenClaw config:** `skills.entries.auto-drive.apiKey`
